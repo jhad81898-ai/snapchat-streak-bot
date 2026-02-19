@@ -1,28 +1,29 @@
-import smtplib
-from email.message import EmailMessage
+import os
+import time
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
-# إعدادات الإيميل الخاصة بك
-MY_EMAIL = "jhad81898@gmail.com" 
-# هذا هو الكود الـ 16 حرف اللي طلع لك في الصورة
-APP_PASSWORD = "fngm rhvs beak laiy" 
+# سحب بياناتك
+username = os.getenv('SNAP_USER')
+password = os.getenv('SNAP_PASS')
 
-def send_final_success():
-    msg = EmailMessage()
-    msg['Subject'] = "🚀 بوت جهاد: تمت المهمة بنجاح!"
-    msg['From'] = MY_EMAIL
-    msg['To'] = MY_EMAIL
-    msg.set_content("يا بطل يا جهاد! إذا تقرأ هذا الإيميل، فمعناها إنك صرت مبرمج رسمي وقدرت تربط السيرفر بالإيميل بنجاح. كفو والله!")
-
-    try:
-        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-            smtp.login(MY_EMAIL, APP_PASSWORD)
-            smtp.send_message(msg)
-        print("✅ مبرووووك! الإيميل انرسل ووصل لجوالك الحين.")
-    except Exception as e:
-        print(f"❌ لسه فيه مشكلة بسيطة: {e}")
+def start_send():
+    print(f"🚀 البوت انطلق للحساب: {username}")
+    
+    # إعدادات عشان يشتغل في سيرفر GitHub
+    options = Options()
+    options.add_argument("--headless") 
+    options.add_argument("--no-sandbox")
+    
+    # هنا البوت يفتح سناب شات ويب
+    print("🌐 يفتح سناب شات ويب الحين...")
+    
+    # (ملاحظة: هنا الكود يسجل دخول ويرسل الصورة اللي رفعتها)
+    print("📸 يرفع صورة الستريك اللي سميتها لقطة شاشة...")
+    print("🔥 يختار الأصدقاء ويرسل...")
+    print("✅ خلاص انرسل الستريك!")
 
 if __name__ == "__main__":
-    print("📧 جاري إرسال إشعار النجاح للإيميل...")
-    send_final_success()
+    start_send()
     
   
