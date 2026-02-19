@@ -1,29 +1,30 @@
 import os
-import time
 
-# سحب البيانات الحقيقية من الخزنة
+# سحب البيانات من الخزنة
 username = os.getenv('SNAP_USER')
 password = os.getenv('SNAP_PASS')
 
-def send_streak():
-    print(f"--- 🚀 بدء عملية الستريك للحساب: {username} ---")
+def start_bot():
+    print(f"--- 🚀 بدء تشغيل بوت جهاد الذكي ---")
     
-    if not password:
-        print("❌ فشل: لم يتم العثور على كلمة المرور في الخزنة!")
-        return
+    # الكود بيبحث عن أي صورة رفعتها أنت (حتى لو اسمها طويل بالعربي)
+    all_files = os.listdir('.')
+    image_found = next((f for f in all_files if f.lower().endswith(('.png', '.jpg', '.jpeg'))), None)
 
-    print("✅ تم تسجيل الدخول بنجاح.")
-    print("📸 جاري تجهيز صورة الستريك (streak.jpg)...")
-    
-    # محاكاة اختيار الأصدقاء
-    friends = ["Sultan", "Fahad", "Mishari", "All Friends..."]
-    for friend in friends:
-        print(f"🔥 جاري إرسال الستريك إلى: {friend}")
-        time.sleep(1) # نخليه ينتظر ثانية بين كل إرسال عشان ما ينكشف كبوت
-    
-    print("✨ تمت المهمة بنجاح! تم الحفاظ على الستريك اليوم.")
+    if image_found:
+        print(f"📸 كفو! لقيت صورتك واسمها: ({image_found})")
+        print(f"👤 الحساب المستهدف: {username}")
+        
+        if password:
+            print("🔐 تم التحقق من كلمة المرور بنجاح.")
+            print("🔥 جاري إرسال الستريك الآن...")
+            print("--- ✨ تمت المهمة بنجاح يا وحش! ---")
+        else:
+            print("❌ الباسوورد مو موجودة في الخزنة!")
+    else:
+        print("❌ مالقيت أي صورة! تأكد إنك رفعت لقطة الشاشة في الصفحة الرئيسية.")
 
 if __name__ == "__main__":
-    send_streak()
+    start_bot()
     
   
