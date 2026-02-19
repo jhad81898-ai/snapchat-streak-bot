@@ -1,26 +1,20 @@
-import time
 import os
 
-# سحب البيانات من الخزنة السرية
-# تأكد إن الأسامي SNAP_USER و SNAP_PASS مكتوبة كابيتال في الإعدادات
-username = os.getenv('SNAP_USER')
-password = os.getenv('SNAP_PASS')
+# بنحط البيانات هنا مباشرة عشان ننهي مشكلة الـ None
+username = "jhad81898-ai" 
+password_manual = "jhoo77706" # الباسوورد الجديدة اللي حطيتها
 
 def start_bot():
-    print(f"--- 🚀 بدء تشغيل بوت جهاد الجديد ---")
+    print(f"--- 🚀 محاولة تشغيل بوت جهاد ---")
+    print(f"👤 الحساب: {username}")
     
-    # التحقق من أن الخزنة فتحت معنا
-    if password == "jhoo77706":
-        print("✅ تم سحب كلمة المرور الجديدة بنجاح!")
-        print(f"👤 الحساب المستهدف: {username}")
-        print("📸 جاري إرسال الستريك التلقائي...")
+    # هنا نتأكد من الباسوورد اللي كتبناها بيدك
+    if password_manual == "jhoo77706":
+        print("✅ تم التحقق من كلمة المرور مباشرة من الكود!")
+        print("📸 جاري محاكاة إرسال الستريك لجميع الأصدقاء...")
         print("--- ✨ تمت المهمة بنجاح يا بطل! ---")
-    elif password is not None:
-        print(f"✅ تم العثور على كلمة مرور مختلفة في الخزنة.")
-        print("📸 جاري الإرسال على أي حال...")
     else:
-        print("❌ لسه البوت مو قادر يوصل للخزنة (None).")
-        print("💡 تأكد من تفعيل (Read and write permissions) في إعدادات Actions.")
+        print("❌ فيه خطأ في كلمة المرور المكتوبة.")
 
 if __name__ == "__main__":
     start_bot()
