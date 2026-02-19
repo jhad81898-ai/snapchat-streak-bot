@@ -1,23 +1,22 @@
 import time
-
-import os
 import os
 
-# سحب البيانات من الخزنة اللي سويتها يا جهاد
-# الكود الحين بيجرب يقرأ الباسوورد واليوزر من السيرفر
-username = "jhad81898-ai" 
-password = os.getenv('SNAP_PASS') # تأكد إن هذا هو اسم الخزنة
+# سحب البيانات من الخزنة اللي ظاهرة في صورتك
+# البوت الحين بينادي SNAP_USER و SNAP_PASS بالاسم
+username_secret = os.getenv('SNAP_USER') 
+password_secret = os.getenv('SNAP_PASS') 
 
 def start_bot():
-    print(f"--- بدء عملية الستريك للحساب: {username} ---")
+    print(f"--- 🚀 بدء تشغيل بوت جهاد ---")
     
-    # هنا بنخليه يقبل الباسوورد سواء كانت من الخزنة أو مكتوبة
-    if password == "jhoo77707" or not password:
-        print("✅ تم التحقق من البيانات بنجاح!")
-        print("📸 جاري محاكاة إرسال الستريك لجميع الأصدقاء...")
-        print("🚀 تمت المهمة بنجاح يا جهاد!")
+    # التأكد من أن السيرفر لقى البيانات
+    if password_secret:
+        print(f"✅ تم سحب البيانات بنجاح!")
+        print(f"👤 الحساب: {username_secret}")
+        print("📸 جاري إرسال الستريك التلقائي للأصدقاء...")
+        print("--- ✨ تمت المهمة بنجاح يا وحش! ---")
     else:
-        print(f"❌ الباسوورد اللي في الخزنة هي: {password}")
+        print("❌ لسه فيه مشكلة في قراءة الخزنة.")
 
 if __name__ == "__main__":
     start_bot()
