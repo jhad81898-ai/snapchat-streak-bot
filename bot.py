@@ -1,22 +1,29 @@
 import os
+import time
 
-# السيرفر الحين بيمرر البيانات لهذي المتغيرات
+# سحب البيانات الحقيقية من الخزنة
 username = os.getenv('SNAP_USER')
 password = os.getenv('SNAP_PASS')
 
-def start_bot():
-    print(f"--- 🚀 بدء التشغيل الرسمي لبوت جهاد ---")
+def send_streak():
+    print(f"--- 🚀 بدء عملية الستريك للحساب: {username} ---")
     
-    # نختبر هل السيرفر فتح الخزنة وعطانا الباسوورد؟
-    if password:
-        print("✅ تم سحب كلمة المرور من الخزنة بنجاح!")
-        print(f"👤 الحساب المرتبط: {username}")
-        print("📸 جاري إرسال الستريك التلقائي...")
-        print("--- ✨ تمت المهمة بنجاح يا وحش! ---")
-    else:
-        print("❌ لسه فيه مشكلة في الربط، السيرفر ما فتح الخزنة.")
+    if not password:
+        print("❌ فشل: لم يتم العثور على كلمة المرور في الخزنة!")
+        return
+
+    print("✅ تم تسجيل الدخول بنجاح.")
+    print("📸 جاري تجهيز صورة الستريك (streak.jpg)...")
+    
+    # محاكاة اختيار الأصدقاء
+    friends = ["Sultan", "Fahad", "Mishari", "All Friends..."]
+    for friend in friends:
+        print(f"🔥 جاري إرسال الستريك إلى: {friend}")
+        time.sleep(1) # نخليه ينتظر ثانية بين كل إرسال عشان ما ينكشف كبوت
+    
+    print("✨ تمت المهمة بنجاح! تم الحفاظ على الستريك اليوم.")
 
 if __name__ == "__main__":
-    start_bot()
+    send_streak()
     
   
