@@ -1,0 +1,21 @@
+name: Snap Bot Schedule
+
+on:
+  schedule:
+    - cron: '0 8 * * *' # كذا بيشتغل الساعة 8 الصبح كل يوم بتوقيت العالمي
+  workflow_dispatch: # هذا الزر يخليك تشغله يدوياً متى ما بغيت
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Run Python Script
+        run: python bot.py
