@@ -2,8 +2,8 @@ name: Snap Bot Schedule
 
 on:
   schedule:
-    - cron: '0 8 * * *' # كذا بيشتغل الساعة 8 الصبح كل يوم بتوقيت العالمي
-  workflow_dispatch: # هذا الزر يخليك تشغله يدوياً متى ما بغيت
+    - cron: '0 5 * * *' # يشتغل كل يوم الفجر
+  workflow_dispatch: # زر التشغيل اليدوي
 
 jobs:
   run-bot:
@@ -18,4 +18,7 @@ jobs:
           python-version: '3.9'
 
       - name: Run Python Script
+        env:
+          SNAP_USER: ${{ secrets.SNAP_USER }}
+          SNAP_PASS: ${{ secrets.SNAP_PASS }}
         run: python bot.py
